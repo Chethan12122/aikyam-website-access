@@ -1,0 +1,41 @@
+```
+
+---
+
+## 🛠️ Steps to fix your project
+
+**Step 1** — Open terminal in your project folder:
+```
+cd "D:\aikyam web access"
+```
+
+**Step 2** — Install all dependencies:
+```
+npm install
+```
+
+**Step 3** — Start the dev server:
+```
+npm start
+```
+
+---
+
+## 📁 Expected folder structure
+```
+D:\aikyam web access\
+├── public\
+│   └── index.html
+├── src\
+│   ├── components\
+│   │   └── Auth\
+│   │       ├── SignIn\
+│   │       │   ├── SignIn.jsx
+│   │       │   └── ForgetPassword.jsx
+│   │       └── SignUp\
+│   │           ├── SignUp.jsx
+│   │           └── OTP.jsx
+│   ├── App.js
+│   └── index.js
+├── package.json
+└── package-lock.json   ← gets auto-generated after npm install
