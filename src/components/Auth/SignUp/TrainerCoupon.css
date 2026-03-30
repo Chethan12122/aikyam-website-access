@@ -1,0 +1,120 @@
+@import url('https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Sora:wght@600;700&display=swap');
+
+* { box-sizing: border-box; margin: 0; padding: 0; }
+
+.coupon-page {
+  min-height: 100vh;
+  display: flex; align-items: center; justify-content: center;
+  background: #fff;
+  font-family: 'DM Sans', sans-serif;
+  padding: 24px; position: relative; overflow: hidden;
+}
+
+.coupon-blob {
+  position: absolute; border-radius: 50%;
+  filter: blur(60px); opacity: 0.15; pointer-events: none;
+}
+.coupon-blob-tr {
+  width: 320px; height: 320px;
+  background: radial-gradient(circle, #FF6B35, #FF8C00);
+  top: -60px; right: -60px;
+}
+
+.coupon-card {
+  background: #fff;
+  border-radius: 24px; padding: 40px 36px;
+  width: 100%; max-width: 420px;
+  box-shadow: 0 8px 40px rgba(0,0,0,0.08);
+  display: flex; flex-direction: column; align-items: center; gap: 16px;
+  animation: fadeUp 0.4s ease; position: relative; z-index: 1;
+}
+@keyframes fadeUp {
+  from { opacity: 0; transform: translateY(16px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+.coupon-back {
+  align-self: flex-start; background: none; border: none;
+  color: #EA580C; font-size: 14px; font-weight: 600;
+  cursor: pointer; font-family: 'DM Sans', sans-serif;
+}
+.coupon-back:hover { text-decoration: underline; }
+
+.coupon-icon { font-size: 52px; }
+
+.coupon-title {
+  font-family: 'Sora', sans-serif;
+  font-size: 22px; font-weight: 700; color: #0f172a;
+}
+.coupon-subtitle {
+  font-size: 14px; color: #64748b;
+  text-align: center; line-height: 1.6;
+}
+
+.coupon-input-wrap { width: 100%; display: flex; flex-direction: column; gap: 6px; }
+
+.coupon-input {
+  width: 100%; padding: 14px 16px;
+  border: 1.5px solid #EA580C;
+  border-radius: 12px;
+  font-family: 'DM Sans', sans-serif;
+  font-size: 15px; color: #0f172a;
+  outline: none; background: #fff;
+  transition: box-shadow 0.2s;
+  letter-spacing: 2px;
+}
+.coupon-input:focus {
+  box-shadow: 0 0 0 3px rgba(234,88,12,0.15);
+}
+.coupon-input.coupon-input-error { border-color: #ef4444; }
+.coupon-input::placeholder { letter-spacing: 0; color: #94a3b8; }
+
+.coupon-error { font-size: 12px; color: #ef4444; }
+
+.coupon-success {
+  font-size: 13px; color: #16a34a;
+  background: #f0fdf4; padding: 12px 16px;
+  border-radius: 10px; border: 1px solid #bbf7d0;
+  width: 100%; text-align: center;
+}
+
+/* Two buttons — mirrors Flutter's Row with two ElevatedButtons */
+.coupon-actions {
+  display: flex; gap: 12px; width: 100%; margin-top: 8px;
+}
+
+.coupon-btn-outline {
+  flex: 1; padding: 14px;
+  background: #fff; color: #EA580C;
+  border: 2px solid #EA580C;
+  border-radius: 12px;
+  font-family: 'Sora', sans-serif;
+  font-size: 13px; font-weight: 700;
+  cursor: pointer;
+  transition: background 0.2s;
+  text-align: center; line-height: 1.3;
+}
+.coupon-btn-outline:hover:not(:disabled) { background: #fff7ed; }
+.coupon-btn-outline:disabled { opacity: 0.5; cursor: not-allowed; }
+
+.coupon-btn-primary {
+  flex: 1; padding: 14px;
+  background: #EA580C; color: #fff;
+  border: none; border-radius: 12px;
+  font-family: 'Sora', sans-serif;
+  font-size: 14px; font-weight: 700;
+  cursor: pointer;
+  display: flex; align-items: center; justify-content: center;
+  min-height: 50px;
+  transition: opacity 0.2s;
+}
+.coupon-btn-primary:hover:not(:disabled) { opacity: 0.88; }
+.coupon-btn-primary:disabled { opacity: 0.6; cursor: not-allowed; }
+
+.spinner {
+  width: 20px; height: 20px;
+  border: 2.5px solid rgba(255,255,255,0.4);
+  border-top-color: white; border-radius: 50%;
+  animation: spin 0.7s linear infinite;
+}
+@keyframes spin { to { transform: rotate(360deg); } }

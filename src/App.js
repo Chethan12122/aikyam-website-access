@@ -4,6 +4,9 @@ import SignIn from "./components/Auth/SignIn/SignIn";
 import SignUp from "./components/Auth/SignUp/SignUp";
 import ForgetPassword from "./components/Auth/SignIn/ForgetPassword";
 import OTP from "./components/Auth/SignUp/OTP";
+import ChoiceScreen from "./components/Auth/SignUp/ChoiceScreen";
+import TrainerCoupon from "./components/Auth/SignUp/TrainerCoupon";
+import Onboarding from "./components/Auth/SignUp/Onboarding";
 import Dashboard from "./components/Dashboard/Dashboard";
 
 // Protected route — redirects to /signin if not logged in
@@ -16,10 +19,18 @@ function App() {
   return (
     <Router>
       <Routes>
-        <Route path="/signin" element={<SignIn />} />
-        <Route path="/signup" element={<SignUp />} />
+        {/* Auth */}
+        <Route path="/signin"          element={<SignIn />} />
+        <Route path="/signup"          element={<SignUp />} />
         <Route path="/forget-password" element={<ForgetPassword />} />
-        <Route path="/otp" element={<OTP />} />
+        <Route path="/otp"             element={<OTP />} />
+
+        {/* Role selection flow */}
+        <Route path="/choice"          element={<ChoiceScreen />} />
+        <Route path="/trainer-coupon"  element={<TrainerCoupon />} />
+        <Route path="/onboarding"      element={<Onboarding />} />
+
+        {/* Main app */}
         <Route
           path="/dashboard"
           element={
@@ -28,7 +39,8 @@ function App() {
             </ProtectedRoute>
           }
         />
-        {/* Default redirect */}
+
+        {/* Default */}
         <Route path="*" element={<Navigate to="/signin" replace />} />
       </Routes>
     </Router>

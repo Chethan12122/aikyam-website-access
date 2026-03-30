@@ -116,7 +116,7 @@ const OTP = () => {
         localStorage.setItem("userEmail", email);
         setSuccessMsg("Sign-up Successful! You have successfully registered!");
         clearInterval(timerRef.current);
-        setTimeout(() => navigate("/dashboard"), 1800);
+        setTimeout(() => navigate("/choice", { state: { email } }), 1800);
       } else if (response.status === 400) {
         setError("OTP expired. Please resend.");
       } else {
