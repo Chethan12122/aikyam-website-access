@@ -15,6 +15,7 @@ const OrganizationPage = ({ userEmail }) => {
     }
   }, [userEmail]);
 
+
   const fetchOrganizationMembers = async () => {
     try {
       setLoading(true);

@@ -8,6 +8,7 @@ import ChoiceScreen from "./components/Auth/SignUp/ChoiceScreen";
 import TrainerCoupon from "./components/Auth/SignUp/TrainerCoupon";
 import Onboarding from "./components/Auth/SignUp/Onboarding";
 import Dashboard from "./components/Dashboard/Dashboard";
+import Welcome from "./components/Welcome";
 
 // Protected route — redirects to /signin if not logged in
 const ProtectedRoute = ({ children }) => {
@@ -19,6 +20,9 @@ function App() {
   return (
     <Router>
       <Routes>
+        {/* Welcome Page */}
+        <Route path="/" element={<Welcome />} />
+
         {/* Auth */}
         <Route path="/signin"          element={<SignIn />} />
         <Route path="/signup"          element={<SignUp />} />
