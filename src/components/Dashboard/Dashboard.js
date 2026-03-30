@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import "./Dashboard.css";
+import OrganizationPage from "./OrganizationPage";
 
 // ── Page Placeholders ────────────────────────────────────────
 const HomePlaceholder = ({ userRole }) => (
@@ -87,6 +88,18 @@ const ProfileIcon = ({ active }) => (
   </svg>
 );
 
+const OrganizationIcon = ({ active }) => (
+  <svg width="26" height="26" viewBox="0 0 24 24" fill="none">
+    <path
+      d="M4 21V7a1 1 0 011-1h4a1 1 0 011 1v14M13 21V3a1 1 0 011-1h4a1 1 0 011 1v18M9 10h2M9 14h2M9 18h2M16 7h2M16 11h2M16 15h2"
+      stroke={active ? "var(--primary)" : "var(--nav-inactive)"}
+      strokeWidth="1.8"
+      strokeLinecap="round"
+      strokeLinejoin="round"
+    />
+  </svg>
+);
+
 // ── Main Dashboard ───────────────────────────────────────────
 const Dashboard = () => {
   const navigate = useNavigate();
@@ -133,15 +146,16 @@ const Dashboard = () => {
   };
 
   // ── Nav items — trainer gets Devices tab, athlete doesn't ──
-  const navItems = [
-    { label: "Home",    Icon: HomeIcon,    page: <HomePlaceholder userRole={userRole} /> },
-    { label: "Users",   Icon: UsersIcon,   page: <UsersPlaceholder /> },
-    { label: "Session", Icon: SessionIcon, page: <SessionPlaceholder /> },
-    ...(userRole === "trainer"
-      ? [{ label: "Devices", Icon: DevicesIcon, page: <DevicesPlaceholder /> }]
-      : []),
-    { label: "Profile", Icon: ProfileIcon, page: <ProfilePlaceholder userEmail={userEmail} /> },
-  ];
+const navItems = [
+  { label: "Home", Icon: HomeIcon, page: <HomePlaceholder userRole={userRole} /> },
+  { label: "Users", Icon: UsersIcon, page: <UsersPlaceholder /> },
+  { label: "Session", Icon: SessionIcon, page: <SessionPlaceholder /> },
+  { label: "Organization", Icon: OrganizationIcon, page: <OrganizationPage userEmail={userEmail} /> },
+  ...(userRole === "trainer"
+    ? [{ label: "Devices", Icon: DevicesIcon, page: <DevicesPlaceholder /> }]
+    : []),
+  { label: "Profile", Icon: ProfileIcon, page: <ProfilePlaceholder userEmail={userEmail} /> },
+];
 
   // Clamp index if role switches
   const safeIndex = selectedIndex < navItems.length ? selectedIndex : 0;
