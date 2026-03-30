@@ -1,0 +1,130 @@
+@import url('https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Sora:wght@600;700;800&display=swap');
+
+* { box-sizing: border-box; margin: 0; padding: 0; }
+
+.choice-page {
+  min-height: 100vh;
+  display: flex; align-items: center; justify-content: center;
+  background: #fff;
+  font-family: 'DM Sans', sans-serif;
+  padding: 24px;
+  position: relative;
+  overflow: hidden;
+}
+
+/* Decorative blobs — mirrors Flutter's SVG positioned assets */
+.choice-blob {
+  position: absolute;
+  border-radius: 50%;
+  filter: blur(60px);
+  opacity: 0.18;
+  pointer-events: none;
+}
+.choice-blob-tr {
+  width: 320px; height: 320px;
+  background: radial-gradient(circle, #FF6B35, #FF8C00);
+  top: -60px; right: -60px;
+}
+.choice-blob-bl {
+  width: 280px; height: 280px;
+  background: radial-gradient(circle, #4F46E5, #06B6D4);
+  bottom: -60px; left: -60px;
+}
+
+.choice-content {
+  position: relative; z-index: 1;
+  display: flex; flex-direction: column;
+  align-items: center; gap: 8px;
+  width: 100%; max-width: 520px;
+}
+
+.choice-title {
+  font-family: 'Sora', sans-serif;
+  font-size: 22px; font-weight: 700;
+  color: #0f172a; text-align: center;
+  margin-bottom: 4px;
+}
+.choice-subtitle {
+  font-size: 14px; color: #64748b;
+  margin-bottom: 28px;
+}
+
+/* Cards row */
+.choice-cards {
+  display: flex; gap: 16px;
+  width: 100%; align-items: stretch;
+}
+
+.choice-card {
+  flex: 1;
+  border-radius: 20px;
+  padding: 24px 18px;
+  display: flex; flex-direction: column;
+  align-items: flex-start; gap: 10px;
+  cursor: pointer;
+  box-shadow: 0 4px 24px rgba(0,0,0,0.08);
+  transition: transform 0.2s, box-shadow 0.2s;
+  position: relative;
+  background: linear-gradient(160deg, #fff7ed 0%, #ffffff 100%);
+  border: 1.5px solid #fed7aa;
+  animation: fadeUp 0.4s ease;
+}
+.choice-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 12px 32px rgba(0,0,0,0.12);
+}
+
+@keyframes fadeUp {
+  from { opacity: 0; transform: translateY(20px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+.choice-subscription-badge {
+  position: absolute; top: 14px; left: 14px;
+  background: #FF6B35; color: #fff;
+  font-size: 10px; font-weight: 700;
+  padding: 3px 8px; border-radius: 6px;
+  letter-spacing: 0.3px;
+}
+
+.choice-card-icon { font-size: 40px; margin-top: 8px; }
+
+.choice-card-title {
+  font-family: 'Sora', sans-serif;
+  font-size: 22px; font-weight: 700;
+}
+.athlete-title { color: #EA580C; }
+.trainer-title { color: #EA580C; }
+
+.choice-card-list {
+  list-style: none; padding: 0;
+  display: flex; flex-direction: column; gap: 6px;
+  flex: 1;
+}
+.choice-card-list li {
+  font-size: 13px; color: #374151;
+  padding-left: 14px;
+  position: relative;
+}
+.choice-card-list li::before {
+  content: '•';
+  position: absolute; left: 0;
+  color: #EA580C;
+}
+
+.choice-card-btn {
+  width: 100%; padding: 12px;
+  border: none; border-radius: 12px;
+  font-family: 'Sora', sans-serif;
+  font-size: 13px; font-weight: 700;
+  cursor: pointer;
+  transition: opacity 0.2s;
+  margin-top: 8px;
+}
+.athlete-btn {
+  background: #EA580C; color: #fff;
+}
+.trainer-btn {
+  background: #0f172a; color: #fff;
+}
+.choice-card-btn:hover { opacity: 0.88; }
