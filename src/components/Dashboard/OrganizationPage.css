@@ -1,0 +1,147 @@
+.organization-page {
+  padding: 20px 16px 24px;
+  min-height: 100%;
+  background: var(--body-bg);
+}
+
+.organization-header {
+  margin-bottom: 18px;
+}
+
+.organization-header h2 {
+  font-family: 'Sora', sans-serif;
+  font-size: 24px;
+  font-weight: 700;
+  color: var(--text-primary);
+  margin-bottom: 4px;
+}
+
+.organization-header p {
+  font-size: 14px;
+  color: var(--text-secondary);
+}
+
+.organization-loading,
+.organization-empty {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 55vh;
+  text-align: center;
+  color: var(--text-secondary);
+  gap: 12px;
+}
+
+.organization-spinner {
+  width: 34px;
+  height: 34px;
+  border: 3px solid rgba(79,70,229,0.15);
+  border-top-color: var(--primary);
+  border-radius: 50%;
+  animation: organizationSpin 0.8s linear infinite;
+}
+
+@keyframes organizationSpin {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+.organization-list {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
+
+.organization-card {
+  background: #ffffff;
+  border-radius: 18px;
+  padding: 16px;
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  box-shadow: 0 6px 18px rgba(15, 23, 42, 0.06);
+  border: 1px solid rgba(226, 232, 240, 0.9);
+  transition: transform 0.18s ease, box-shadow 0.18s ease;
+}
+
+.organization-card:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 10px 22px rgba(15, 23, 42, 0.08);
+}
+
+.organization-avatar {
+  width: 52px;
+  height: 52px;
+  border-radius: 16px;
+  background: linear-gradient(135deg, #4F46E5 0%, #06B6D4 100%);
+  color: white;
+  font-size: 20px;
+  font-weight: 700;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
+.organization-info {
+  flex: 1;
+  min-width: 0;
+}
+
+.organization-info h3 {
+  font-size: 16px;
+  font-weight: 700;
+  color: var(--text-primary);
+  margin-bottom: 4px;
+  line-height: 1.3;
+}
+
+.organization-info p {
+  font-size: 13px;
+  color: var(--text-secondary);
+  margin-bottom: 10px;
+  word-break: break-word;
+}
+
+.organization-meta {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+.organization-role,
+.organization-status {
+  font-size: 11px;
+  font-weight: 700;
+  padding: 6px 10px;
+  border-radius: 999px;
+  text-transform: capitalize;
+  letter-spacing: 0.2px;
+}
+
+.organization-role.athlete {
+  background: rgba(6, 182, 212, 0.12);
+  color: #0891B2;
+}
+
+.organization-role.trainer {
+  background: rgba(79, 70, 229, 0.12);
+  color: #4F46E5;
+}
+
+.organization-status.accepted {
+  background: rgba(34, 197, 94, 0.12);
+  color: #16A34A;
+}
+
+.organization-status.pending {
+  background: rgba(245, 158, 11, 0.12);
+  color: #D97706;
+}
+
+.organization-status.rejected {
+  background: rgba(239, 68, 68, 0.12);
+  color: #DC2626;
+}
